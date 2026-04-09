@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="A bilingual one-page personal service page for an AI x Web3 builder."
+    />
+    <title>Swen Chan | AI x Web3 Builder & DevRel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260409d" />
+  </head>
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" id="brandName">Swen Chan</a>
+        <div class="topbar-actions">
+          <span class="badge" id="availabilityBadge"></span>
+          <div class="lang-switch" aria-label="Language switch">
+            <button
+              class="lang-button is-active"
+              type="button"
+              data-lang-toggle="en"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+            <button
+              class="lang-button"
+              type="button"
+              data-lang-toggle="zh"
+              aria-pressed="false"
+            >
+              中
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero panel">
+          <div class="hero-copy">
+            <p class="eyebrow" id="heroKicker"></p>
+            <h1 id="heroTitle"></h1>
+            <p class="lead" id="heroIntro"></p>
+            <div class="cta-row">
+              <a class="button" id="primaryCta" href="#contact"></a>
+              <a class="button button-ghost" id="secondaryCta" href="#services"></a>
+            </div>
+            <ul class="link-pills" id="quickLinks"></ul>
+          </div>
+
+          <aside class="hero-card">
+            <p class="eyebrow eyebrow-soft" id="heroCardLabel"></p>
+            <h2 id="heroCardTitle"></h2>
+            <ul class="hero-card-list" id="heroCardList"></ul>
+          </aside>
+        </section>
+
+        <section class="section">
+          <article class="panel about-card">
+            <p class="eyebrow" id="aboutEyebrow"></p>
+            <h2 id="aboutTitle"></h2>
+            <p class="about-text" id="aboutText"></p>
+          </article>
+        </section>
+
+        <section class="section" id="services">
+          <div class="section-heading">
+            <p class="eyebrow" id="servicesEyebrow"></p>
+            <h2 id="servicesTitle"></h2>
+            <p class="section-intro" id="servicesIntro"></p>
+          </div>
+          <div class="cards-grid" id="servicesGrid"></div>
+        </section>
+
+        <section class="section" id="proof">
+          <div class="section-heading">
+            <p class="eyebrow" id="proofEyebrow"></p>
+            <h2 id="proofTitle"></h2>
+            <p class="section-intro" id="proofIntro"></p>
+          </div>
+          <div class="cards-grid cards-grid-dark" id="proofGrid"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow" id="trustEyebrow"></p>
+            <h2 id="trustTitle"></h2>
+            <p class="section-intro" id="trustIntro"></p>
+          </div>
+          <div class="trust-grid" id="trustGrid"></div>
+        </section>
+
+        <section class="section" id="contact">
+          <article class="panel contact-card">
+            <p class="eyebrow" id="contactEyebrow"></p>
+            <h2 id="contactTitle"></h2>
+            <p class="section-intro" id="contactIntro"></p>
+            <div class="contact-actions" id="contactActions"></div>
+            <p class="contact-note" id="contactNote"></p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js?v=20260409d"></script>
+  </body>
+</html>
