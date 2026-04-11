@@ -10,7 +10,7 @@
 
 ## What To Edit First
 
-先改 `/Users/Zhuanz/PersonalPage/app.js` 顶部这部分：
+先改 `～/PersonalPage/app.js` 顶部这部分：
 
 ```js
 const profile = {
