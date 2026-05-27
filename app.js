@@ -259,7 +259,7 @@ const copy = {
     trustItems: [
       {
         title: "从模糊到结构",
-        text: "先把模糊方向整理清楚，再推进��行。",
+        text: "先把模糊方向整理清楚，再推进执行。",
       },
       {
         title: "原型和叙事一起考虑",
@@ -270,7 +270,7 @@ const copy = {
         text: "会同时考虑 demo、onboarding、docs 和 ecosystem context。",
       },
       {
-        title: "实际可栴",
+        title: "实际可执行",
         text: "更关注团队下一步真的能用和能推进的产出。",
       },
     ],
