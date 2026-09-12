@@ -611,6 +611,50 @@ h3 {
   font-size: 0.98rem;
 }
 
+.project-stage-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1px;
+  min-height: 30px;
+  margin: -9px 3px -10px 0;
+}
+
+.project-nav-dot {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  place-items: center;
+}
+
+.project-nav-dot::before {
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(21, 18, 15, 0.18);
+  border-radius: 50%;
+  background: rgba(21, 18, 15, 0.2);
+  content: "";
+  transition: transform 0.24s ease, background-color 0.24s ease, border-color 0.24s ease;
+}
+
+.project-nav-dot:hover::before,
+.project-nav-dot:focus-visible::before {
+  border-color: rgba(21, 18, 15, 0.48);
+  background: rgba(21, 18, 15, 0.38);
+  transform: scale(1.18);
+}
+
+.project-nav-dot.is-active::before {
+  border-color: var(--ink);
+  background: var(--ink);
+  transform: scale(1.22);
+}
+
 .project-grid {
   display: flex;
   height: clamp(480px, 52vw, 525px);
@@ -1384,19 +1428,44 @@ h3 {
 
   .project-grid {
     display: grid;
-    height: auto;
-    gap: 8px;
+    height: clamp(530px, 155vw, 610px);
+    gap: 0;
     padding: 6px;
   }
 
   .project-card,
   .project-card:nth-child(1),
   .project-card:nth-child(4) {
-    min-height: 148px;
+    grid-area: 1 / 1;
+    min-height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(28px) scale(0.985);
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      transform 0.48s cubic-bezier(0.2, 0.76, 0.18, 1),
+      visibility 0s linear 0.48s;
   }
 
   .project-card.is-active {
-    min-height: 510px;
+    min-height: 100%;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .project-card:not(.is-active) {
+    filter: none;
+  }
+
+  .project-stage-nav {
+    justify-content: center;
+    margin-top: -7px;
+    margin-right: 0;
+    margin-bottom: -8px;
   }
 
   .project-card-shell {

@@ -75,6 +75,7 @@ const copy = {
     workTitle: "Products and programs I have helped move from idea to reality.",
     workIntro:
       "A focused selection across embedded products, AI-native commerce, developer tools, and ecosystem education.",
+    projectNavigationLabel: "Choose a project",
     projects: [
       {
         slug: "puff",
@@ -273,6 +274,7 @@ const copy = {
     workTitle: "把产品和项目从想法推进到真实结果。",
     workIntro:
       "聚焦展示嵌入式产品、AI 原生商业、开发者工具与生态教育方面的实践。",
+    projectNavigationLabel: "选择项目",
     projects: [
       {
         slug: "puff",
@@ -474,6 +476,7 @@ const elements = {
   workEyebrow: byId("workEyebrow"),
   workTitle: byId("workTitle"),
   workIntro: byId("workIntro"),
+  projectStageNav: byId("projectStageNav"),
   projectGrid: byId("projectGrid"),
   experienceEyebrow: byId("experienceEyebrow"),
   experienceTitle: byId("experienceTitle"),
@@ -555,6 +558,47 @@ function createProjectAction({ label, href }) {
 let activeProjectSlug = "puff";
 const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const projectAutoplayDelay = 3500;
+const projectManualPauseDuration = 7000;
+let projectAutoplayTimer = null;
+let projectStageObserver = null;
+let projectStageVisible = false;
+let projectStageInteracting = false;
+let projectManualPauseUntil = 0;
+
+function clearProjectAutoplay() {
+  window.clearTimeout(projectAutoplayTimer);
+  projectAutoplayTimer = null;
+}
+
+function canAutoplayProjects() {
+  return (
+    projectStageVisible &&
+    !projectStageInteracting &&
+    !reducedMotionQuery.matches &&
+    document.visibilityState === "visible" &&
+    elements.projectGrid.querySelectorAll(".project-card").length > 1
+  );
+}
+
+function scheduleProjectAutoplay(delay = projectAutoplayDelay) {
+  clearProjectAutoplay();
+  if (!canAutoplayProjects()) return;
+
+  const manualPauseRemaining = Math.max(0, projectManualPauseUntil - Date.now());
+  projectAutoplayTimer = window.setTimeout(() => {
+    if (!canAutoplayProjects()) return;
+    const cards = [...elements.projectGrid.querySelectorAll(".project-card")];
+    const activeIndex = cards.findIndex((card) => card.classList.contains("is-active"));
+    setActiveProject(cards[(activeIndex + 1) % cards.length]);
+    scheduleProjectAutoplay();
+  }, Math.max(delay, manualPauseRemaining));
+}
+
+function pauseProjectAutoplay(duration = projectManualPauseDuration) {
+  projectManualPauseUntil = Date.now() + duration;
+  scheduleProjectAutoplay();
+}
 
 function stopProjectPreview(card) {
   const video = card.querySelector(".project-media-video");
@@ -601,7 +645,8 @@ function startProjectPreview(card) {
   }
 }
 
-function setActiveProject(card) {
+function setActiveProject(card, { userInitiated = false } = {}) {
+  if (!card) return;
   activeProjectSlug = card.dataset.project;
   elements.projectGrid.querySelectorAll(".project-card").forEach((projectCard) => {
     const isActive = projectCard === card;
@@ -612,9 +657,25 @@ function setActiveProject(card) {
       ?.setAttribute("aria-hidden", String(!isActive));
     if (!isActive) stopProjectPreview(projectCard);
   });
+
+  elements.projectStageNav.querySelectorAll(".project-nav-dot").forEach((button) => {
+    const isActive = button.dataset.projectTarget === activeProjectSlug;
+    button.classList.toggle("is-active", isActive);
+    if (isActive) {
+      button.setAttribute("aria-current", "true");
+    } else {
+      button.removeAttribute("aria-current");
+    }
+  });
+
+  if (userInitiated) pauseProjectAutoplay();
 }
 
 function setupProjectStage() {
+  clearProjectAutoplay();
+  projectStageObserver?.disconnect();
+  projectStageVisible = false;
+  projectStageInteracting = false;
   const cards = [...elements.projectGrid.querySelectorAll(".project-card")];
   const initialCard =
     cards.find((card) => card.dataset.project === activeProjectSlug) ?? cards[0];
@@ -631,17 +692,91 @@ function setupProjectStage() {
     card.addEventListener("focusin", () => setActiveProject(card));
     card.addEventListener("click", (event) => {
       if (event.target.closest("a")) return;
-      setActiveProject(card);
+      setActiveProject(card, { userInitiated: true });
     });
     card.addEventListener("keydown", (event) => {
       if (event.target !== card || !["Enter", " "].includes(event.key)) return;
       event.preventDefault();
-      setActiveProject(card);
+      setActiveProject(card, { userInitiated: true });
     });
+  });
+
+  const stageElements = [elements.projectGrid, elements.projectStageNav];
+  stageElements.forEach((element) => {
+    element.addEventListener("pointerenter", () => {
+      if (!finePointerQuery.matches) return;
+      projectStageInteracting = true;
+      clearProjectAutoplay();
+    });
+    element.addEventListener("pointerleave", () => {
+      if (!finePointerQuery.matches) return;
+      projectStageInteracting = false;
+      scheduleProjectAutoplay();
+    });
+  });
+
+  elements.projectStageNav.querySelectorAll(".project-nav-dot").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const card = cards.find(
+        (projectCard) => projectCard.dataset.project === button.dataset.projectTarget,
+      );
+      setActiveProject(card, { userInitiated: true });
+      if (event.detail > 0) button.blur();
+    });
+  });
+
+  let swipeStartX = null;
+  elements.projectGrid.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "touch" || event.target.closest("a")) return;
+    swipeStartX = event.clientX;
+  });
+  elements.projectGrid.addEventListener("pointerup", (event) => {
+    if (swipeStartX === null || event.pointerType !== "touch") return;
+    const distance = event.clientX - swipeStartX;
+    swipeStartX = null;
+    if (Math.abs(distance) < 48) return;
+    const activeIndex = cards.findIndex((card) => card.classList.contains("is-active"));
+    const direction = distance < 0 ? 1 : -1;
+    const nextIndex = (activeIndex + direction + cards.length) % cards.length;
+    setActiveProject(cards[nextIndex], { userInitiated: true });
+  });
+
+  const workSection = elements.projectGrid.closest("#work");
+  if ("IntersectionObserver" in window && workSection) {
+    projectStageObserver = new IntersectionObserver(
+      ([entry]) => {
+        projectStageVisible = entry.isIntersecting && entry.intersectionRatio >= 0.35;
+        if (projectStageVisible) scheduleProjectAutoplay();
+        else clearProjectAutoplay();
+      },
+      { threshold: [0, 0.35, 0.7] },
+    );
+    projectStageObserver.observe(workSection);
+  } else {
+    projectStageVisible = true;
+    scheduleProjectAutoplay();
+  }
+}
+
+function renderProjectNavigation(items, label) {
+  elements.projectStageNav.replaceChildren();
+  elements.projectStageNav.setAttribute("aria-label", label);
+  items.forEach((item, index) => {
+    const button = document.createElement("button");
+    button.className = "project-nav-dot";
+    button.type = "button";
+    button.dataset.projectTarget = item.slug;
+    button.setAttribute("aria-label", `${String(index + 1).padStart(2, "0")} · ${item.title}`);
+    const hiddenLabel = document.createElement("span");
+    hiddenLabel.className = "sr-only";
+    hiddenLabel.textContent = item.title;
+    button.append(hiddenLabel);
+    elements.projectStageNav.append(button);
   });
 }
 
-function renderProjects(items) {
+function renderProjects(items, navigationLabel) {
+  renderProjectNavigation(items, navigationLabel);
   elements.projectGrid.replaceChildren();
   items.forEach((item, index) => {
     const card = document.createElement("article");
@@ -843,7 +978,7 @@ function renderLanguage(lang) {
 
   renderQuickLinks(content.quickLinks);
   renderSignals(content.signals, content.signalsLabel);
-  renderProjects(content.projects);
+  renderProjects(content.projects, content.projectNavigationLabel);
   renderExperience(content.experience);
   renderNumberedCards(elements.capabilityGrid, content.capabilities, "capability-card");
   renderCollaboration(content.collaboration);
@@ -864,6 +999,16 @@ toggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     renderLanguage(button.dataset.langToggle);
   });
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") scheduleProjectAutoplay();
+  else clearProjectAutoplay();
+});
+
+reducedMotionQuery.addEventListener?.("change", () => {
+  if (reducedMotionQuery.matches) clearProjectAutoplay();
+  else scheduleProjectAutoplay();
 });
 
 renderLanguage("en");
