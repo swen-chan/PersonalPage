@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://swen-chan.github.io/PersonalPage/sitemap.xml

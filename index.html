@@ -2,123 +2,192 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="AI x Web3 DevRel, ecosystem program design, personal AI workflows, and custom AI-native workflow systems for Web3 teams and operators."
+      content="Swen Chan is a Shenzhen-based founder and product and technology builder creating 0-to-1 AI products, developer tools, and embedded systems."
     />
-    <meta property="og:title" content="Swen Chan | AI x Web3 DevRel & AI-Native Workflow Systems" />
+    <meta name="author" content="Swen Chan" />
+    <meta name="theme-color" content="#121d1a" />
+    <link rel="canonical" href="https://swen-chan.github.io/PersonalPage/" />
+
+    <meta property="og:title" content="Swen Chan | AI Product &amp; Embedded Systems Builder" />
     <meta
       property="og:description"
-      content="DevRel assets, ecosystem program design, personal AI workflows, and custom AI-native workflow systems for Web3 teams and operators."
+      content="Founder and hands-on product and technology builder working across AI, Web3, developer tools, and embedded systems."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://swen-chan.github.io/PersonalPage/" />
+    <meta property="og:site_name" content="Swen Chan" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Swen Chan | AI x Web3 DevRel & AI-Native Workflow Systems" />
+    <meta name="twitter:title" content="Swen Chan | AI Product &amp; Embedded Systems Builder" />
     <meta
       name="twitter:description"
-      content="DevRel assets, ecosystem program design, personal AI workflows, and custom AI-native workflow systems for Web3 teams and operators."
+      content="Building 0-to-1 products across AI, Web3, and embedded systems."
     />
-    <title>Swen Chan | AI x Web3 DevRel & AI-Native Workflow Systems</title>
+
+    <title>Swen Chan | AI Product &amp; Embedded Systems Builder</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260527" />
+    <link rel="stylesheet" href="styles.css?v=20260912" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Swen Chan",
+        "url": "https://swen-chan.github.io/PersonalPage/",
+        "jobTitle": "Founder and Product / Technology Builder",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Shenzhen, China"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/swenchan",
+          "https://github.com/swen-chan",
+          "https://x.com/SwenChan"
+        ],
+        "knowsAbout": [
+          "0-to-1 product development",
+          "AI agent workflows",
+          "AI products",
+          "Web3 developer tools",
+          "Embedded systems",
+          "ESP32",
+          "Bluetooth Low Energy",
+          "Hardware-software integration"
+        ]
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="page-noise" aria-hidden="true"></div>
-    <div class="site-shell">
+
+    <div class="site-shell" id="top">
       <header class="topbar">
         <a class="brand" href="#top" id="brandName">Swen Chan</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#work" id="navWork">Work</a>
+          <a href="#experience" id="navExperience">Experience</a>
+          <a href="#capabilities" id="navCapabilities">Capabilities</a>
+          <a href="#contact" id="navContact">Contact</a>
+        </nav>
         <div class="topbar-actions">
-          <span class="badge" id="availabilityBadge"></span>
           <div class="lang-switch" aria-label="Language switch">
-            <button
-              class="lang-button is-active"
-              type="button"
-              data-lang-toggle="en"
-              aria-pressed="true"
-            >
-              EN
-            </button>
-            <button
-              class="lang-button"
-              type="button"
-              data-lang-toggle="zh"
-              aria-pressed="false"
-            >
-              中
-            </button>
+            <button class="lang-button is-active" type="button" data-lang-toggle="en" aria-pressed="true">EN</button>
+            <button class="lang-button" type="button" data-lang-toggle="zh" aria-pressed="false">中</button>
           </div>
         </div>
       </header>
 
-      <main id="top">
-        <section class="hero panel">
+      <main id="main">
+        <section class="hero panel" aria-labelledby="heroTitle">
           <div class="hero-copy">
-            <p class="eyebrow" id="heroKicker"></p>
-            <h1 id="heroTitle"></h1>
-            <p class="lead" id="heroIntro"></p>
+            <p class="eyebrow" id="heroKicker">Founder &amp; Product / Technology Builder</p>
+            <h1 id="heroTitle">Building 0-to-1 products across AI, Web3, and embedded systems.</h1>
+            <p class="lead" id="heroIntro">
+              Based in Shenzhen, I work from user discovery and product definition through AI workflows, software prototypes, and hardware-software integration.
+            </p>
+            <p class="availability" id="availabilityBadge">
+              Shenzhen · Open to product and technology roles, and selected collaborations
+            </p>
             <div class="cta-row">
-              <a class="button" id="primaryCta" href="#contact"></a>
-              <a class="button button-ghost" id="secondaryCta" href="#services"></a>
+              <a class="button" id="primaryCta" href="#work">View selected work</a>
+              <a class="button button-ghost" id="secondaryCta" href="#contact">Contact me</a>
             </div>
-            <ul class="link-pills" id="quickLinks"></ul>
+            <ul class="link-pills" id="quickLinks" aria-label="Profile links">
+              <li><a class="text-pill" href="https://www.linkedin.com/in/swenchan" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a class="text-pill" href="https://github.com/swen-chan" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a class="text-pill" href="https://t.me/redemptionandy" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+              <li><a class="text-pill" href="https://x.com/SwenChan" target="_blank" rel="noopener noreferrer">X</a></li>
+              <li><a class="text-pill" href="mailto:swenchan96@gmail.com">Email</a></li>
+            </ul>
           </div>
 
-          <aside class="hero-card">
-            <p class="eyebrow eyebrow-soft" id="heroCardLabel"></p>
-            <h2 id="heroCardTitle"></h2>
-            <ul class="hero-card-list" id="heroCardList"></ul>
+          <aside class="hero-card" aria-labelledby="heroCardTitle">
+            <p class="eyebrow eyebrow-soft" id="heroCardLabel">Current focus</p>
+            <h2 id="heroCardTitle">Hands-on work, from product definition to implementation.</h2>
+            <ul class="hero-card-list" id="heroCardList">
+              <li>Leading software and embedded systems development for Puff.</li>
+              <li>Building Deal Agent for hospitality commerce and operations.</li>
+              <li>Working across AI products, developer tools, and hardware-software integration.</li>
+            </ul>
           </aside>
         </section>
 
-        <section class="section" id="services">
-          <div class="section-heading">
-            <p class="eyebrow" id="servicesEyebrow"></p>
-            <h2 id="servicesTitle"></h2>
-            <p class="section-intro" id="servicesIntro"></p>
-          </div>
-          <div class="cards-grid" id="servicesGrid"></div>
+        <section class="signal-strip" id="signalStrip" aria-label="Selected outcomes">
+          <article class="signal-item"><strong>1st Place</strong><span>The Scaling Summit AI Agent Demo Day</span></article>
+          <article class="signal-item"><strong>15 selected</strong><span>Sequoia China AGI Builders, from nearly 2,000 applicants</span></article>
+          <article class="signal-item"><strong>1,000+</strong><span>AI × Web3 School participants</span></article>
+          <article class="signal-item"><strong>2nd Place</strong><span>Spark AI Hackathon</span></article>
         </section>
 
-        <section class="section" id="proof">
-          <div class="section-heading">
-            <p class="eyebrow" id="proofEyebrow"></p>
-            <h2 id="proofTitle"></h2>
-            <p class="section-intro" id="proofIntro"></p>
+        <section class="section" id="work" aria-labelledby="workTitle">
+          <div class="section-heading section-heading-split">
+            <div><p class="eyebrow" id="workEyebrow">Selected work</p><h2 id="workTitle">Products and programs I have helped move from idea to reality.</h2></div>
+            <p class="section-intro" id="workIntro">A focused selection across embedded products, AI-native commerce, developer tools, and ecosystem education.</p>
           </div>
-          <div class="cards-grid cards-grid-dark" id="proofGrid"></div>
+          <div class="project-grid" id="projectGrid">
+            <article class="project-card project-card-featured is-active" data-project="puff" tabindex="0" aria-expanded="true"><figure class="project-media"><img src="assets/puff/puff-card.jpg?v=20260912b" alt="Puff multisensory desktop companion in use" loading="lazy" decoding="async"><video class="project-media-video" data-src="assets/puff/puff-preview.mp4?v=20260912" data-start="5.5" poster="assets/puff/puff-card.jpg?v=20260912b" preload="none" muted loop playsinline aria-hidden="true"></video></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">01</span><p class="project-role">Software &amp; Embedded Systems Lead · Jul 2026 - Present</p></div><h3>Puff</h3><div class="project-card-content" aria-hidden="false"><p>A multisensory desktop companion integrating visual expression, motion, sound, scent, and sensor-based interactions.</p><p class="project-detail">ESP32 control logic · BLE · sensors · actuators · interaction state machines</p><div class="project-actions"><a class="project-link" href="https://aicamp1-d6g1f3rcgd07aff06-1450652232.tcloudbaseapp.com/puff/" target="_blank" rel="noopener noreferrer">Interactive prototype</a></div></div></div></article>
+            <article class="project-card" data-project="deal-agent" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/deal-agent.jpg?v=20260912b" alt="Deal Agent conversational hotel booking demo" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">02</span><p class="project-role">Founder · Mar 2026 - Present</p></div><h3>Deal Agent</h3><div class="project-card-content" aria-hidden="true"><p>An AI-native commerce and operations product for independent hotels and short-term rental operators.</p><p class="project-detail">1st Place at The Scaling Summit AI Agent Demo Day; selected for Sequoia China’s inaugural AGI Builders program as one of 15 from nearly 2,000 global applicants.</p><div class="project-actions"><a class="project-link" href="https://x.com/DealAgentX" target="_blank" rel="noopener noreferrer">Project on X</a><a class="project-link" href="https://youtu.be/gT6-i7709qg?si=DhPN-qFMMHsZE-E1" target="_blank" rel="noopener noreferrer">Demo video</a><a class="project-link" href="https://x.com/SwenChan/status/2046253680199098439?s=20" target="_blank" rel="noopener noreferrer">Award record</a></div></div></div></article>
+            <article class="project-card" data-project="eip-playground" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/eip-playground.jpg?v=20260912b" alt="EIP Playground pixel-art learning environment and panda tutor" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">03</span><p class="project-role">Founder · Backend &amp; AI Agent Development · Feb - Apr 2026</p></div><h3>EIP Playground</h3><div class="project-card-content" aria-hidden="true"><p>An interactive developer tool for exploring Ethereum Improvement Proposals.</p><p class="project-detail">2nd Place at the Spark AI Hackathon.</p><div class="project-actions"><a class="project-link" href="https://github.com/David-0x221Eight/web3-eip-playground" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div></article>
+            <article class="project-card" data-project="ai-web3-school" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/ai-web3-school.jpg?v=20260912b" alt="AI Web3 School official digital-cube hero artwork" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">04</span><p class="project-role">Co-Founder &amp; TA · Mar - Jun 2026</p></div><h3>AI × Web3 School</h3><div class="project-card-content" aria-hidden="true"><p>A global developer education initiative connecting curriculum, instructors, ecosystem partners, community operations, and a multi-week hackathon.</p><p class="project-detail">Reached 1,000+ participants.</p><div class="project-actions"><a class="project-link" href="https://aiweb3.school" target="_blank" rel="noopener noreferrer">Website</a><a class="project-link" href="https://x.com/aiweb3school" target="_blank" rel="noopener noreferrer">Project on X</a></div></div></div></article>
+          </div>
         </section>
 
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow" id="trustEyebrow"></p>
-            <h2 id="trustTitle"></h2>
-            <p class="section-intro" id="trustIntro"></p>
+        <section class="section" id="experience" aria-labelledby="experienceTitle">
+          <div class="section-heading section-heading-split">
+            <div><p class="eyebrow" id="experienceEyebrow">Experience</p><h2 id="experienceTitle">Product, ecosystem, education, and evaluation work.</h2></div>
+            <p class="section-intro" id="experienceIntro">Roles that show how I work across market context, technical execution, and delivery.</p>
           </div>
-          <div class="trust-grid" id="trustGrid"></div>
+          <div class="timeline" id="experienceList">
+            <article class="timeline-item"><p class="timeline-date">Jun - Aug 2026</p><div><p class="timeline-org">Virtuals / EconomyOS</p><h3>Business Development, China</h3><p>Developed the China developer ecosystem and startup partnerships, then translated founder and developer feedback into product and ecosystem recommendations.</p></div></article>
+            <article class="timeline-item"><p class="timeline-date">Jul 2026</p><div><p class="timeline-org">Youth AI Creation Program</p><h3>Program Lead &amp; Lead Instructor</h3><p>Designed and delivered project-based AI programs that guided learners from idea to prototype and final presentation.</p></div></article>
+            <article class="timeline-item"><p class="timeline-date">Apr - Aug 2026</p><div><p class="timeline-org">Automated Scoring Evaluation for Virtual Physics Experiments</p><h3>Python Analysis &amp; Model Evaluation</h3><p>Led the Python-based analysis and model evaluation module, including automated scoring analysis, human-rating comparison, and reliability assessment.</p></div></article>
+          </div>
         </section>
 
-        <section class="section" id="contact">
-          <article class="panel contact-card">
-            <p class="eyebrow" id="contactEyebrow"></p>
-            <h2 id="contactTitle"></h2>
-            <p class="section-intro" id="contactIntro"></p>
-            <div class="contact-actions" id="contactActions"></div>
-            <p class="contact-note" id="contactNote"></p>
+        <section class="section" id="capabilities" aria-labelledby="capabilitiesTitle">
+          <div class="section-heading section-heading-split">
+            <div><p class="eyebrow" id="capabilitiesEyebrow">Capabilities</p><h2 id="capabilitiesTitle">Useful across product, software, hardware, and ecosystem boundaries.</h2></div>
+            <p class="section-intro" id="capabilitiesIntro">My strongest contribution is connecting these disciplines around a concrete product or program outcome.</p>
+          </div>
+          <div class="capability-grid" id="capabilityGrid">
+            <article class="capability-card"><p class="capability-index">01</p><h3>Product &amp; Execution</h3><p>0-to-1 product development, product strategy, rapid prototyping, user discovery, and cross-functional execution.</p></article>
+            <article class="capability-card"><p class="capability-index">02</p><h3>AI &amp; Data</h3><p>AI-agent workflows, applied AI products, Python, data analysis, model evaluation, and statistical validation.</p></article>
+            <article class="capability-card"><p class="capability-index">03</p><h3>Software &amp; Embedded</h3><p>ESP32, BLE, embedded state machines, sensor integration, actuator control, and hardware-software integration.</p></article>
+            <article class="capability-card"><p class="capability-index">04</p><h3>Ecosystem &amp; Education</h3><p>Developer education, curriculum and program design, partner coordination, community operations, and bilingual delivery.</p></article>
+          </div>
+        </section>
+
+        <section class="section" id="collaboration" aria-labelledby="collaborationTitle">
+          <article class="collaboration-panel panel">
+            <div class="collaboration-copy"><p class="eyebrow" id="collaborationEyebrow">Ways to collaborate</p><h2 id="collaborationTitle">I am most useful where a promising direction needs both definition and hands-on execution.</h2><p class="section-intro" id="collaborationIntro">The exact format can be a role, a focused project, or an early-stage collaboration.</p></div>
+            <div class="collaboration-list" id="collaborationList">
+              <article><h3>Product &amp; technology roles</h3><p>Early-stage teams that need someone to connect product definition, prototyping, and technical delivery.</p></article>
+              <article><h3>0-to-1 product collaboration</h3><p>Turning a validated direction into a prototype, demo, workflow, or first usable system.</p></article>
+              <article><h3>Developer ecosystem &amp; education</h3><p>Developer-facing products, education programs, technical storytelling, and ecosystem initiatives.</p></article>
+            </div>
+          </article>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contactTitle">
+          <article class="contact-card panel">
+            <div><p class="eyebrow" id="contactEyebrow">Contact</p><h2 id="contactTitle">If my background fits what you are building, send me a concise note.</h2><p class="section-intro" id="contactIntro">I am based in Shenzhen and open to product and technology roles, selected collaborations, and relevant ecosystem work.</p></div>
+            <div class="contact-side"><div class="contact-actions" id="contactActions"><a href="https://www.linkedin.com/in/swenchan" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/swen-chan" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://t.me/redemptionandy" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://x.com/SwenChan" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:swenchan96@gmail.com">Email</a></div><p class="contact-note" id="contactNote">Resume available on request.</p></div>
           </article>
         </section>
       </main>
+
+      <footer class="site-footer"><span id="footerName">Swen Chan</span><span id="footerLocation">Shenzhen, China</span></footer>
     </div>
 
-    <script src="app.js?v=20260527"></script>
+    <script src="app.js?v=20260912"></script>
   </body>
 </html>
