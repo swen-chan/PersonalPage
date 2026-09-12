@@ -28,6 +28,7 @@ html {
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   margin: 0;
   color: var(--ink);
@@ -36,6 +37,8 @@ body {
     radial-gradient(circle at 94% 7%, rgba(186, 107, 40, 0.16), transparent 27%),
     linear-gradient(180deg, #f8f2e7 0%, var(--bg) 48%, var(--bg-deep) 100%);
   font-family: "Noto Sans SC", sans-serif;
+  isolation: isolate;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -61,6 +64,92 @@ body::before {
   background-position: 0 0, 15px 15px;
   background-size: 30px 30px;
   pointer-events: none;
+}
+
+.signal-atlas {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.signal-atlas svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.atlas-path,
+.atlas-orbit ellipse {
+  vector-effect: non-scaling-stroke;
+}
+
+.atlas-path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 1.6;
+}
+
+.atlas-path-teal {
+  stroke: rgba(15, 118, 110, 0.23);
+}
+
+.atlas-path-warm {
+  stroke: rgba(186, 107, 40, 0.21);
+}
+
+.atlas-path-ink {
+  stroke: rgba(21, 18, 15, 0.12);
+}
+
+.atlas-path-dashed {
+  stroke-dasharray: 7 13;
+  animation: atlas-signal 28s linear infinite;
+}
+
+.atlas-glow {
+  opacity: 0.1;
+}
+
+.atlas-glow-teal {
+  fill: #0f766e;
+}
+
+.atlas-glow-warm {
+  fill: #ba6b28;
+}
+
+.atlas-glow-small {
+  opacity: 0.075;
+}
+
+.atlas-orbit ellipse {
+  fill: rgba(255, 250, 242, 0.14);
+  stroke: rgba(21, 18, 15, 0.13);
+  stroke-width: 1.2;
+}
+
+.atlas-drift-one,
+.atlas-drift-two,
+.atlas-drift-three {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.atlas-drift-one {
+  animation: atlas-drift-one 16s ease-in-out infinite alternate;
+}
+
+.atlas-drift-two {
+  animation: atlas-drift-two 19s ease-in-out infinite alternate;
+}
+
+.atlas-drift-three {
+  animation: atlas-drift-three 22s ease-in-out infinite alternate;
 }
 
 a {
@@ -96,6 +185,8 @@ button:focus-visible {
 }
 
 .site-shell {
+  position: relative;
+  z-index: 1;
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   padding: 22px 0 36px;
@@ -222,8 +313,9 @@ main {
   padding: clamp(28px, 4vw, 50px);
   border-radius: var(--radius-xl);
   background:
-    linear-gradient(145deg, rgba(18, 29, 26, 0.99), rgba(18, 34, 30, 0.93)),
+    linear-gradient(145deg, rgba(18, 29, 26, 0.86), rgba(18, 34, 30, 0.78)),
     linear-gradient(120deg, rgba(15, 118, 110, 0.2), transparent 45%);
+  backdrop-filter: blur(2px) saturate(0.92);
   color: var(--cream);
   overflow: hidden;
 }
@@ -1011,7 +1103,8 @@ h3 {
   padding: clamp(30px, 5vw, 52px);
   border-radius: var(--radius-xl);
   background:
-    linear-gradient(145deg, rgba(18, 29, 26, 0.99), rgba(18, 38, 33, 0.94));
+    linear-gradient(145deg, rgba(18, 29, 26, 0.87), rgba(18, 38, 33, 0.8));
+  backdrop-filter: blur(2px) saturate(0.92);
   color: var(--cream);
 }
 
@@ -1121,6 +1214,30 @@ h3 {
   }
 }
 
+@keyframes atlas-signal {
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+
+@keyframes atlas-drift-one {
+  to {
+    transform: translate3d(5px, -4px, 0);
+  }
+}
+
+@keyframes atlas-drift-two {
+  to {
+    transform: translate3d(-4px, 6px, 0);
+  }
+}
+
+@keyframes atlas-drift-three {
+  to {
+    transform: translate3d(4px, 5px, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1137,6 +1254,13 @@ h3 {
 
   .capability-card:nth-child(even) {
     transform: none;
+  }
+
+  .atlas-path-dashed,
+  .atlas-drift-one,
+  .atlas-drift-two,
+  .atlas-drift-three {
+    animation: none;
   }
 }
 
@@ -1181,6 +1305,18 @@ h3 {
 }
 
 @media (max-width: 760px) {
+  .signal-atlas {
+    opacity: 0.72;
+  }
+
+  .atlas-path {
+    stroke-width: 1.25;
+  }
+
+  .atlas-orbit {
+    opacity: 0.7;
+  }
+
   .site-shell {
     width: min(100% - 20px, 1180px);
     padding-top: 12px;
