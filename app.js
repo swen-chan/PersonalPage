@@ -1,8 +1,8 @@
 const profile = {
   name: "Swen Chan",
-  location: {
-    en: "Shenzhen, China",
-    zh: "中国深圳",
+  availability: {
+    en: "Remote & international",
+    zh: "远程与国际机会",
   },
   email: "swenchan96@gmail.com",
   links: {
@@ -15,7 +15,7 @@ const profile = {
     dealAgentAward: "https://x.com/SwenChan/status/2046253680199098439?s=20",
     puffPrototype:
       "https://aicamp1-d6g1f3rcgd07aff06-1450652232.tcloudbaseapp.com/puff/",
-    eipPlayground: "https://github.com/David-0x221Eight/web3-eip-playground",
+    eipPlayground: "https://github.com/EIP-Playground/EIP-Playground",
     aiWeb3School: "https://aiweb3.school",
     aiWeb3SchoolX: "https://x.com/aiweb3school",
   },
@@ -28,7 +28,7 @@ const copy = {
   en: {
     pageTitle: "Swen Chan | AI Product & Embedded Systems Builder",
     metaDescription:
-      "Swen Chan is a Shenzhen-based founder and product and technology builder creating 0-to-1 AI products, developer tools, and embedded systems.",
+      "Swen Chan is a founder and product and technology builder creating 0-to-1 AI products, developer tools, and embedded systems.",
     navigationLabel: "Primary navigation",
     languageLabel: "Language switch",
     nav: {
@@ -40,16 +40,16 @@ const copy = {
     heroKicker: "Founder & Product / Technology Builder",
     heroTitle: "Building 0-to-1 products across AI, Web3, and embedded systems.",
     heroIntro:
-      "Based in Shenzhen, I work from user discovery and product definition through AI workflows, software prototypes, and hardware-software integration.",
+      "I work from user discovery and product definition through AI workflows, software prototypes, and hardware-software integration.",
     availability:
-      "Shenzhen · Open to product and technology roles, and selected collaborations",
+      "Open to remote and international product and technology roles, and selected collaborations",
     primaryCta: "View selected work",
     secondaryCta: "Contact me",
     heroCardLabel: "Current focus",
     heroCardTitle: "Hands-on work, from product definition to implementation.",
     heroCardList: [
       "Leading software and embedded systems development for Puff.",
-      "Building Deal Agent for hospitality commerce and operations.",
+      "Building Deal Agent for hospitality commerce, operations, and programmable payments.",
       "Working across AI products, developer tools, and hardware-software integration.",
     ],
     signalsLabel: "Selected outcomes",
@@ -101,7 +101,7 @@ const copy = {
         title: "Deal Agent",
         role: "Founder · Mar 2026 - Present",
         description:
-          "An AI-native commerce and operations product for independent hotels and short-term rental operators.",
+          "An AI-native commerce and operations product for hospitality, connecting inventory workflows with programmable payments.",
         detail:
           "1st Place at The Scaling Summit AI Agent Demo Day; selected for Sequoia China’s inaugural AGI Builders program as one of 15 from nearly 2,000 global applicants.",
         media: {
@@ -219,9 +219,9 @@ const copy = {
     contactTitle:
       "If my background fits what you are building, send me a concise note.",
     contactIntro:
-      "I am based in Shenzhen and open to product and technology roles, selected collaborations, and relevant ecosystem work.",
+      "I am open to remote and international product and technology roles, selected collaborations, and relevant ecosystem work.",
     contactNote: "Resume available on request.",
-    footerLocation: profile.location.en,
+    footerAvailability: profile.availability.en,
     quickLinks: [
       { label: "LinkedIn", href: profile.links.linkedin, icon: "linkedin" },
       { label: "GitHub", href: profile.links.github, icon: "github" },
@@ -240,7 +240,7 @@ const copy = {
   zh: {
     pageTitle: "Swen Chan | AI 产品与嵌入式系统建设者",
     metaDescription:
-      "Swen Chan 是常驻深圳的创业者与产品技术建设者，专注从 0 到 1 推进 AI 产品、开发者工具与嵌入式系统。",
+      "Swen Chan 是创业者与产品技术建设者，专注从 0 到 1 推进 AI 产品、开发者工具与嵌入式系统。",
     navigationLabel: "主导航",
     languageLabel: "语言切换",
     nav: {
@@ -252,15 +252,15 @@ const copy = {
     heroKicker: "创业者与产品 / 技术建设者",
     heroTitle: "构建横跨 AI、Web3 与嵌入式系统的 0-to-1 产品。",
     heroIntro:
-      "常驻深圳，从用户探索和产品定义，一直推进到 AI 工作流、软件原型与软硬件整合。",
-    availability: "中国深圳 · 开放产品与技术岗位，以及合适的合作机会",
+      "从用户探索和产品定义，一直推进到 AI 工作流、软件原型与软硬件整合。",
+    availability: "开放远程与国际化的产品、技术岗位，以及合适的合作机会",
     primaryCta: "查看代表项目",
     secondaryCta: "联系我",
     heroCardLabel: "当前重点",
     heroCardTitle: "从产品定义到具体实现，保持一线动手。",
     heroCardList: [
       "负责 Puff 的软件与嵌入式系统开发。",
-      "推进面向酒店和短租运营场景的 Deal Agent。",
+      "推进连接酒店商业、运营、库存工作流与可编程支付的 Deal Agent。",
       "持续实践 AI 产品、开发者工具与软硬件整合。",
     ],
     signalsLabel: "代表成果",
@@ -299,7 +299,7 @@ const copy = {
         title: "Deal Agent",
         role: "Founder · 2026.03 - 至今",
         description:
-          "面向独立酒店和短租运营方的 AI 原生商业与运营产品。",
+          "面向酒店场景的 AI 原生商业与运营产品，连接库存工作流与可编程支付。",
         detail:
           "香港 The Scaling Summit AI Agent Demo Day 第一名；入选红杉中国首期 AGI Builders 项目，为近 2,000 名全球申请者中的 15 人之一。",
         media: {
@@ -410,9 +410,9 @@ const copy = {
     contactEyebrow: "联系",
     contactTitle: "如果我的经历与你正在做的事情契合，欢迎发一段简洁的信息。",
     contactIntro:
-      "我常驻深圳，开放产品与技术岗位、合适的合作机会，以及相关的生态工作。",
+      "我开放远程与国际化的产品、技术岗位、合适的合作机会，以及相关的生态工作。",
     contactNote: "如有需要，可以单独索取最新版简历。",
-    footerLocation: profile.location.zh,
+    footerAvailability: profile.availability.zh,
     quickLinks: [
       { label: "LinkedIn", href: profile.links.linkedin, icon: "linkedin" },
       { label: "GitHub", href: profile.links.github, icon: "github" },
@@ -497,7 +497,7 @@ const elements = {
   contactNote: byId("contactNote"),
   quickLinks: byId("quickLinks"),
   footerName: byId("footerName"),
-  footerLocation: byId("footerLocation"),
+  footerAvailability: byId("footerAvailability"),
 };
 
 const toggleButtons = document.querySelectorAll("[data-lang-toggle]");
@@ -974,7 +974,7 @@ function renderLanguage(lang) {
   elements.contactIntro.textContent = content.contactIntro;
   elements.contactNote.textContent = content.contactNote;
   elements.footerName.textContent = profile.name;
-  elements.footerLocation.textContent = content.footerLocation;
+  elements.footerAvailability.textContent = content.footerAvailability;
 
   renderQuickLinks(content.quickLinks);
   renderSignals(content.signals, content.signalsLabel);

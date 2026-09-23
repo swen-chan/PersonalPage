@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Swen Chan is a Shenzhen-based founder and product and technology builder creating 0-to-1 AI products, developer tools, and embedded systems."
+      content="Swen Chan is a founder and product and technology builder creating 0-to-1 AI products, developer tools, and embedded systems."
     />
     <meta name="author" content="Swen Chan" />
     <meta name="theme-color" content="#121d1a" />
@@ -19,11 +19,35 @@
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://swen-chan.github.io/PersonalPage/" />
     <meta property="og:site_name" content="Swen Chan" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="profile:first_name" content="Swen" />
+    <meta property="profile:last_name" content="Chan" />
+    <meta
+      property="og:image"
+      content="https://swen-chan.github.io/PersonalPage/assets/social/swen-chan-og.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Swen Chan — founder and product and technology builder across AI products, developer tools, and embedded systems."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@SwenChan" />
     <meta name="twitter:title" content="Swen Chan | AI Product &amp; Embedded Systems Builder" />
     <meta
       name="twitter:description"
       content="Building 0-to-1 products across AI, Web3, and embedded systems."
+    />
+    <meta
+      name="twitter:image"
+      content="https://swen-chan.github.io/PersonalPage/assets/social/swen-chan-og.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Swen Chan — founder and product and technology builder across AI products, developer tools, and embedded systems."
     />
 
     <title>Swen Chan | AI Product &amp; Embedded Systems Builder</title>
@@ -39,28 +63,41 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Swen Chan",
-        "url": "https://swen-chan.github.io/PersonalPage/",
-        "jobTitle": "Founder and Product / Technology Builder",
-        "homeLocation": {
-          "@type": "Place",
-          "name": "Shenzhen, China"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/swenchan",
-          "https://github.com/swen-chan",
-          "https://x.com/SwenChan"
-        ],
-        "knowsAbout": [
-          "0-to-1 product development",
-          "AI agent workflows",
-          "AI products",
-          "Web3 developer tools",
-          "Embedded systems",
-          "ESP32",
-          "Bluetooth Low Energy",
-          "Hardware-software integration"
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://swen-chan.github.io/PersonalPage/#profile-page",
+            "url": "https://swen-chan.github.io/PersonalPage/",
+            "name": "Swen Chan | AI Product & Embedded Systems Builder",
+            "description": "Swen Chan is a founder and product and technology builder creating 0-to-1 AI products, developer tools, and embedded systems.",
+            "inLanguage": ["en", "zh-Hans"],
+            "mainEntity": {
+              "@id": "https://swen-chan.github.io/PersonalPage/#swen-chan"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://swen-chan.github.io/PersonalPage/#swen-chan",
+            "name": "Swen Chan",
+            "url": "https://swen-chan.github.io/PersonalPage/",
+            "description": "Swen Chan is a founder and product and technology builder creating 0-to-1 AI products, developer tools, and embedded systems.",
+            "jobTitle": "Founder and Product / Technology Builder",
+            "sameAs": [
+              "https://www.linkedin.com/in/swenchan",
+              "https://github.com/swen-chan",
+              "https://x.com/SwenChan"
+            ],
+            "knowsAbout": [
+              "0-to-1 product development",
+              "AI agent workflows",
+              "AI products",
+              "Web3 developer tools",
+              "Embedded systems",
+              "ESP32",
+              "Bluetooth Low Energy",
+              "Hardware-software integration"
+            ]
+          }
         ]
       }
     </script>
@@ -114,10 +151,10 @@
             <p class="eyebrow" id="heroKicker">Founder &amp; Product / Technology Builder</p>
             <h1 id="heroTitle">Building 0-to-1 products across AI, Web3, and embedded systems.</h1>
             <p class="lead" id="heroIntro">
-              Based in Shenzhen, I work from user discovery and product definition through AI workflows, software prototypes, and hardware-software integration.
+              I work from user discovery and product definition through AI workflows, software prototypes, and hardware-software integration.
             </p>
             <p class="availability" id="availabilityBadge">
-              Shenzhen · Open to product and technology roles, and selected collaborations
+              Open to remote and international product and technology roles, and selected collaborations
             </p>
             <div class="cta-row">
               <a class="button" id="primaryCta" href="#work">View selected work</a>
@@ -137,7 +174,7 @@
             <h2 id="heroCardTitle">Hands-on work, from product definition to implementation.</h2>
             <ul class="hero-card-list" id="heroCardList">
               <li>Leading software and embedded systems development for Puff.</li>
-              <li>Building Deal Agent for hospitality commerce and operations.</li>
+              <li>Building Deal Agent for hospitality commerce, operations, and programmable payments.</li>
               <li>Working across AI products, developer tools, and hardware-software integration.</li>
             </ul>
           </aside>
@@ -163,8 +200,8 @@
           </div>
           <div class="project-grid" id="projectGrid">
             <article class="project-card project-card-featured is-active" data-project="puff" tabindex="0" aria-expanded="true"><figure class="project-media"><img src="assets/puff/puff-card.jpg?v=20260912b" alt="Puff multisensory desktop companion in use" loading="lazy" decoding="async"><video class="project-media-video" data-src="assets/puff/puff-preview.mp4?v=20260912" data-start="5.5" poster="assets/puff/puff-card.jpg?v=20260912b" preload="none" muted loop playsinline aria-hidden="true"></video></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">01</span><p class="project-role">Software &amp; Embedded Systems Lead · Jul 2026 - Present</p></div><h3>Puff</h3><div class="project-card-content" aria-hidden="false"><p>A multisensory desktop companion integrating visual expression, motion, sound, scent, and sensor-based interactions.</p><p class="project-detail">ESP32 control logic · BLE · sensors · actuators · interaction state machines</p><div class="project-actions"><a class="project-link" href="https://aicamp1-d6g1f3rcgd07aff06-1450652232.tcloudbaseapp.com/puff/" target="_blank" rel="noopener noreferrer">Interactive prototype</a></div></div></div></article>
-            <article class="project-card" data-project="deal-agent" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/deal-agent.jpg?v=20260912b" alt="Deal Agent conversational hotel booking demo" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">02</span><p class="project-role">Founder · Mar 2026 - Present</p></div><h3>Deal Agent</h3><div class="project-card-content" aria-hidden="true"><p>An AI-native commerce and operations product for independent hotels and short-term rental operators.</p><p class="project-detail">1st Place at The Scaling Summit AI Agent Demo Day; selected for Sequoia China’s inaugural AGI Builders program as one of 15 from nearly 2,000 global applicants.</p><div class="project-actions"><a class="project-link" href="https://x.com/DealAgentX" target="_blank" rel="noopener noreferrer">Project on X</a><a class="project-link" href="https://youtu.be/gT6-i7709qg?si=DhPN-qFMMHsZE-E1" target="_blank" rel="noopener noreferrer">Demo video</a><a class="project-link" href="https://x.com/SwenChan/status/2046253680199098439?s=20" target="_blank" rel="noopener noreferrer">Award record</a></div></div></div></article>
-            <article class="project-card" data-project="eip-playground" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/eip-playground.jpg?v=20260912b" alt="EIP Playground pixel-art learning environment and panda tutor" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">03</span><p class="project-role">Founder · Backend &amp; AI Agent Development · Feb - Apr 2026</p></div><h3>EIP Playground</h3><div class="project-card-content" aria-hidden="true"><p>An interactive developer tool for exploring Ethereum Improvement Proposals.</p><p class="project-detail">2nd Place at the Spark AI Hackathon.</p><div class="project-actions"><a class="project-link" href="https://github.com/David-0x221Eight/web3-eip-playground" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div></article>
+            <article class="project-card" data-project="deal-agent" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/deal-agent.jpg?v=20260912b" alt="Deal Agent conversational hotel booking demo" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">02</span><p class="project-role">Founder · Mar 2026 - Present</p></div><h3>Deal Agent</h3><div class="project-card-content" aria-hidden="true"><p>An AI-native commerce and operations product for hospitality, connecting inventory workflows with programmable payments.</p><p class="project-detail">1st Place at The Scaling Summit AI Agent Demo Day; selected for Sequoia China’s inaugural AGI Builders program as one of 15 from nearly 2,000 global applicants.</p><div class="project-actions"><a class="project-link" href="https://x.com/DealAgentX" target="_blank" rel="noopener noreferrer">Project on X</a><a class="project-link" href="https://youtu.be/gT6-i7709qg?si=DhPN-qFMMHsZE-E1" target="_blank" rel="noopener noreferrer">Demo video</a><a class="project-link" href="https://x.com/SwenChan/status/2046253680199098439?s=20" target="_blank" rel="noopener noreferrer">Award record</a></div></div></div></article>
+            <article class="project-card" data-project="eip-playground" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/eip-playground.jpg?v=20260912b" alt="EIP Playground pixel-art learning environment and panda tutor" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">03</span><p class="project-role">Founder · Backend &amp; AI Agent Development · Feb - Apr 2026</p></div><h3>EIP Playground</h3><div class="project-card-content" aria-hidden="true"><p>An interactive developer tool for exploring Ethereum Improvement Proposals.</p><p class="project-detail">2nd Place at the Spark AI Hackathon.</p><div class="project-actions"><a class="project-link" href="https://github.com/EIP-Playground/EIP-Playground" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div></article>
             <article class="project-card" data-project="ai-web3-school" tabindex="0" aria-expanded="false"><figure class="project-media"><img src="assets/projects/ai-web3-school.jpg?v=20260912b" alt="AI Web3 School official digital-cube hero artwork" loading="lazy" decoding="async"></figure><span class="project-door project-door-left" aria-hidden="true"></span><span class="project-door project-door-right" aria-hidden="true"></span><div class="project-card-shell"><div class="project-card-meta"><span class="project-number">04</span><p class="project-role">Co-Founder &amp; TA · Mar - Jun 2026</p></div><h3>AI × Web3 School</h3><div class="project-card-content" aria-hidden="true"><p>A global developer education initiative connecting curriculum, instructors, ecosystem partners, community operations, and a multi-week hackathon.</p><p class="project-detail">Reached 1,000+ participants.</p><div class="project-actions"><a class="project-link" href="https://aiweb3.school" target="_blank" rel="noopener noreferrer">Website</a><a class="project-link" href="https://x.com/aiweb3school" target="_blank" rel="noopener noreferrer">Project on X</a></div></div></div></article>
           </div>
         </section>
@@ -207,13 +244,13 @@
 
         <section class="section" id="contact" aria-labelledby="contactTitle">
           <article class="contact-card panel">
-            <div><p class="eyebrow" id="contactEyebrow">Contact</p><h2 id="contactTitle">If my background fits what you are building, send me a concise note.</h2><p class="section-intro" id="contactIntro">I am based in Shenzhen and open to product and technology roles, selected collaborations, and relevant ecosystem work.</p></div>
+            <div><p class="eyebrow" id="contactEyebrow">Contact</p><h2 id="contactTitle">If my background fits what you are building, send me a concise note.</h2><p class="section-intro" id="contactIntro">I am open to remote and international product and technology roles, selected collaborations, and relevant ecosystem work.</p></div>
             <div class="contact-side"><div class="contact-actions" id="contactActions"><a href="https://www.linkedin.com/in/swenchan" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/swen-chan" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://t.me/redemptionandy" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://x.com/SwenChan" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:swenchan96@gmail.com">Email</a></div><p class="contact-note" id="contactNote">Resume available on request.</p></div>
           </article>
         </section>
       </main>
 
-      <footer class="site-footer"><span id="footerName">Swen Chan</span><span id="footerLocation">Shenzhen, China</span></footer>
+      <footer class="site-footer"><span id="footerName">Swen Chan</span><span id="footerAvailability">Remote &amp; international</span></footer>
     </div>
 
     <script src="app.js?v=20260912b"></script>

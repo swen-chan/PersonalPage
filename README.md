@@ -10,7 +10,7 @@ The page is designed for three audiences:
 
 ## Content Structure
 
-- Hero: positioning, location, current focus, and contact links
+- Hero: positioning, remote and international availability, current focus, and contact links
 - Selected Work: Puff, Deal Agent, EIP Playground, and AI × Web3 School
 - Experience: selected professional, education, and evaluation work
 - Capabilities: product, AI/data, embedded systems, and ecosystem work
@@ -25,8 +25,11 @@ The source resume is not copied into this repository because it contains private
 - `app.js`: bilingual content, links, language rendering, and project-stage interaction
 - `styles.css`: visual system, hover expansion, and responsive layouts
 - `assets/puff/`: the real Puff poster and deferred desktop preview video used by the project stage
+- `assets/social/`: the 1200 × 630 Open Graph source artwork and generated PNG
+- `scripts/check-seo.mjs`: local metadata, structured-data, sitemap, asset, and project-link consistency checks
 - `favicon.svg`: site icon
-- `robots.txt` and `sitemap.xml`: basic search-engine discovery
+- `sitemap.xml`: canonical URL discovery for direct submission to webmaster tools
+- `robots.txt`: a reference copy only; the project-path file cannot set origin-level crawler rules
 - `.nojekyll`: direct static-file publishing on GitHub Pages
 
 ## Content Editing Rule
@@ -53,6 +56,25 @@ python3 -m http.server 8080
 Then open:
 
 `http://localhost:8080`
+
+## SEO Verification
+
+Run the dependency-free regression check before publishing:
+
+```bash
+node scripts/check-seo.mjs
+```
+
+The check validates canonical and social metadata, the `ProfilePage` → `Person`
+structured-data relationship, the Open Graph image dimensions, the sitemap URL,
+and EIP Playground link consistency between static HTML and bilingual app data.
+
+Because this site is hosted below `/PersonalPage/`, the repository's
+`robots.txt` is not the origin-level `https://swen-chan.github.io/robots.txt`
+used by crawlers. Crawling is allowed by default, but origin-wide crawler rules
+require either control of the root user site or a custom domain. Submit
+`https://swen-chan.github.io/PersonalPage/sitemap.xml` directly in search-engine
+webmaster tools.
 
 ## Deployment
 
