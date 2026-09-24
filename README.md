@@ -21,8 +21,9 @@ The source resume is not copied into this repository because it contains private
 
 ## Files
 
-- `index.html`: semantic English fallback content, metadata, and page structure
-- `app.js`: bilingual content, links, language rendering, and project-stage interaction
+- `index.html`: semantic English content, metadata, and page structure for the default route
+- `zh/index.html`: semantic Simplified Chinese content and metadata for the `/zh/` route
+- `app.js`: shared bilingual content, links, route-aware language rendering, and project-stage interaction
 - `styles.css`: visual system, hover expansion, and responsive layouts
 - `assets/puff/`: the real Puff poster and deferred desktop preview video used by the project stage
 - `assets/social/`: the 1200 × 630 Open Graph source artwork and generated PNG
@@ -34,12 +35,15 @@ The source resume is not copied into this repository because it contains private
 
 ## Content Editing Rule
 
-English content appears in both `index.html` and `app.js`:
+Localized content is intentionally kept in static HTML and shared JavaScript:
 
-- `index.html` contains meaningful default content for search engines, link readers, and no-JavaScript environments.
-- `app.js` contains the authoritative bilingual data used after JavaScript loads.
+- `index.html` contains meaningful English content for search engines, link readers, and no-JavaScript environments.
+- `zh/index.html` contains meaningful Simplified Chinese content for the same audiences.
+- `app.js` contains the authoritative bilingual data used after JavaScript loads on either route.
 
-When changing English copy, update both files and verify that they still match.
+When changing English copy, update `index.html` and `app.js`. When changing Chinese
+copy, update `zh/index.html` and `app.js`. Run the SEO check to verify that the two
+routes, metadata, language links, and local assets remain consistent.
 
 Do not add unverified project results, metrics, role titles, dates, or credentials. Prefer a shorter verified statement over a broader unsupported one.
 
@@ -55,7 +59,8 @@ python3 -m http.server 8080
 
 Then open:
 
-`http://localhost:8080`
+- `http://localhost:8080/`
+- `http://localhost:8080/zh/`
 
 ## SEO Verification
 
@@ -65,9 +70,10 @@ Run the dependency-free regression check before publishing:
 node scripts/check-seo.mjs
 ```
 
-The check validates canonical and social metadata, the `ProfilePage` → `Person`
-structured-data relationship, the Open Graph image dimensions, the sitemap URL,
-and EIP Playground link consistency between static HTML and bilingual app data.
+The check validates both localized routes, reciprocal `hreflang`, canonical and
+social metadata, the `ProfilePage` → `Person` structured-data relationship, local
+assets, the Open Graph image dimensions, the sitemap URLs, and EIP Playground link
+consistency between static HTML and bilingual app data.
 
 Because this site is hosted below `/PersonalPage/`, the repository's
 `robots.txt` is not the origin-level `https://swen-chan.github.io/robots.txt`

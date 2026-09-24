@@ -1,3 +1,6 @@
+const siteRootUrl = new URL(".", document.currentScript?.src ?? document.baseURI);
+const siteAssetUrl = (relativePath) => new URL(relativePath, siteRootUrl).href;
+
 const profile = {
   name: "Swen Chan",
   availability: {
@@ -87,8 +90,8 @@ const copy = {
           "ESP32 control logic · BLE · sensors · actuators · interaction state machines",
         featured: true,
         media: {
-          poster: "assets/puff/puff-card.jpg?v=20260912b",
-          video: "assets/puff/puff-preview.mp4?v=20260912",
+          poster: siteAssetUrl("assets/puff/puff-card.jpg?v=20260912b"),
+          video: siteAssetUrl("assets/puff/puff-preview.mp4?v=20260912"),
           start: 5.5,
           alt: "Puff multisensory desktop companion in use",
         },
@@ -105,7 +108,7 @@ const copy = {
         detail:
           "1st Place at The Scaling Summit AI Agent Demo Day; selected for Sequoia China’s inaugural AGI Builders program as one of 15 from nearly 2,000 global applicants.",
         media: {
-          poster: "assets/projects/deal-agent.jpg?v=20260912b",
+          poster: siteAssetUrl("assets/projects/deal-agent.jpg?v=20260912b"),
           alt: "Deal Agent conversational hotel booking demo",
         },
         actions: [
@@ -122,7 +125,7 @@ const copy = {
           "An interactive developer tool for exploring Ethereum Improvement Proposals.",
         detail: "2nd Place at the Spark AI Hackathon.",
         media: {
-          poster: "assets/projects/eip-playground.jpg?v=20260912b",
+          poster: siteAssetUrl("assets/projects/eip-playground.jpg?v=20260912b"),
           alt: "EIP Playground pixel-art learning environment and panda tutor",
         },
         actions: [
@@ -137,7 +140,7 @@ const copy = {
           "A global developer education initiative connecting curriculum, instructors, ecosystem partners, community operations, and a multi-week hackathon.",
         detail: "Reached 1,000+ participants.",
         media: {
-          poster: "assets/projects/ai-web3-school.jpg?v=20260912b",
+          poster: siteAssetUrl("assets/projects/ai-web3-school.jpg?v=20260912b"),
           alt: "AI Web3 School official digital-cube hero artwork",
         },
         actions: [
@@ -285,8 +288,8 @@ const copy = {
         detail: "ESP32 控制逻辑 · BLE · 传感器 · 执行器 · 交互状态机",
         featured: true,
         media: {
-          poster: "assets/puff/puff-card.jpg?v=20260912b",
-          video: "assets/puff/puff-preview.mp4?v=20260912",
+          poster: siteAssetUrl("assets/puff/puff-card.jpg?v=20260912b"),
+          video: siteAssetUrl("assets/puff/puff-preview.mp4?v=20260912"),
           start: 5.5,
           alt: "Puff 多感官桌面陪伴设备使用场景",
         },
@@ -303,7 +306,7 @@ const copy = {
         detail:
           "香港 The Scaling Summit AI Agent Demo Day 第一名；入选红杉中国首期 AGI Builders 项目，为近 2,000 名全球申请者中的 15 人之一。",
         media: {
-          poster: "assets/projects/deal-agent.jpg?v=20260912b",
+          poster: siteAssetUrl("assets/projects/deal-agent.jpg?v=20260912b"),
           alt: "Deal Agent 酒店预订对话式产品演示",
         },
         actions: [
@@ -319,7 +322,7 @@ const copy = {
         description: "一个用于探索 Ethereum Improvement Proposals 的交互式开发者工具。",
         detail: "Spark AI Hackathon 第二名。",
         media: {
-          poster: "assets/projects/eip-playground.jpg?v=20260912b",
+          poster: siteAssetUrl("assets/projects/eip-playground.jpg?v=20260912b"),
           alt: "EIP Playground 像素风学习环境与熊猫导师",
         },
         actions: [{ label: "GitHub", href: profile.links.eipPlayground }],
@@ -332,7 +335,7 @@ const copy = {
           "面向全球开发者的教育项目，连接课程、讲师、生态合作方、社区运营与多周黑客松。",
         detail: "累计触达 1,000+ 名参与者。",
         media: {
-          poster: "assets/projects/ai-web3-school.jpg?v=20260912b",
+          poster: siteAssetUrl("assets/projects/ai-web3-school.jpg?v=20260912b"),
           alt: "AI Web3 School 官方数字立方体主视觉",
         },
         actions: [
@@ -500,7 +503,7 @@ const elements = {
   footerAvailability: byId("footerAvailability"),
 };
 
-const toggleButtons = document.querySelectorAll("[data-lang-toggle]");
+const languageLinks = document.querySelectorAll("[data-lang-toggle]");
 
 function createIconLink({ label, href, icon }, className) {
   const link = document.createElement("a");
@@ -930,7 +933,7 @@ function updateMetadata(content) {
 
 function renderLanguage(lang) {
   const content = copy[lang];
-  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+  document.documentElement.lang = lang === "zh" ? "zh-Hans" : "en";
   updateMetadata(content);
 
   elements.brandName.textContent = profile.name;
@@ -988,18 +991,13 @@ function renderLanguage(lang) {
     elements.contactActions.append(createIconLink(action, "contact-link"));
   });
 
-  toggleButtons.forEach((button) => {
-    const isActive = button.dataset.langToggle === lang;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
+  languageLinks.forEach((link) => {
+    const isActive = link.dataset.langToggle === lang;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
   });
 }
-
-toggleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    renderLanguage(button.dataset.langToggle);
-  });
-});
 
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") scheduleProjectAutoplay();
@@ -1011,4 +1009,8 @@ reducedMotionQuery.addEventListener?.("change", () => {
   else scheduleProjectAutoplay();
 });
 
-renderLanguage("en");
+const initialLanguage = document.documentElement.lang.toLowerCase().startsWith("zh")
+  ? "zh"
+  : "en";
+
+renderLanguage(initialLanguage);
